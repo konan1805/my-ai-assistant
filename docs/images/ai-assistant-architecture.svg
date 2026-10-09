@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071225"/><stop offset="1" stop-color="#101c38"/></linearGradient>
+    <linearGradient id="blue" x1="0" x2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+    <linearGradient id="purple" x1="0" x2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#c026d3"/></linearGradient>
+    <linearGradient id="green" x1="0" x2="1"><stop stop-color="#059669"/><stop offset="1" stop-color="#22c55e"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity=".3"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#78a9ff"/></marker>
+    <style>
+      .title{font:700 48px Arial,sans-serif;fill:#f8fafc}.sub{font:22px Arial,sans-serif;fill:#a9b9d4}
+      .head{font:700 25px Arial,sans-serif;fill:#fff}.body{font:18px Arial,sans-serif;fill:#d9e4f7}.small{font:16px Arial,sans-serif;fill:#c6d4ec}
+      .box{stroke:#6f8fc5;stroke-width:2;rx:20;filter:url(#shadow)}.line{fill:none;stroke:#78a9ff;stroke-width:4;marker-end:url(#arrow)}
+      .dash{fill:none;stroke:#f59e0b;stroke-width:4;stroke-dasharray:10 8;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <text x="800" y="66" text-anchor="middle" class="title">AI Assistant — System Architecture</text>
+  <text x="800" y="104" text-anchor="middle" class="sub">Agentic web research and task execution with evaluation and human control</text>
+
+  <rect x="80" y="170" width="250" height="150" class="box" fill="#142446"/>
+  <text x="205" y="215" text-anchor="middle" class="head">User</text>
+  <text x="205" y="252" text-anchor="middle" class="body">Task request</text><text x="205" y="282" text-anchor="middle" class="body">Success criteria</text>
+
+  <rect x="430" y="155" width="340" height="180" class="box" fill="url(#blue)"/>
+  <text x="600" y="204" text-anchor="middle" class="head">Gradio Interface</text>
+  <text x="600" y="242" text-anchor="middle" class="body">Conversation • Live plan</text><text x="600" y="272" text-anchor="middle" class="body">Approval • Results</text><text x="600" y="302" text-anchor="middle" class="small">app.py</text>
+
+  <rect x="875" y="145" width="420" height="200" class="box" fill="url(#purple)"/>
+  <text x="1085" y="194" text-anchor="middle" class="head">AI Assistant Worker</text>
+  <text x="1085" y="232" text-anchor="middle" class="body">LangChain create_agent</text><text x="1085" y="264" text-anchor="middle" class="body">OpenAI model + tool selection</text><text x="1085" y="296" text-anchor="middle" class="body">Todo planning + task execution</text><text x="1085" y="326" text-anchor="middle" class="small">sidekick.py</text>
+
+  <path d="M330 245 H430" class="line"/><path d="M770 245 H875" class="line"/><path d="M875 290 H790 V300 H770" class="line"/>
+
+  <rect x="95" y="430" width="360" height="225" class="box" fill="#182a4c"/>
+  <text x="275" y="476" text-anchor="middle" class="head">Middleware &amp; Guardrails</text>
+  <text x="130" y="518" class="body">• Human-in-the-loop approval</text><text x="130" y="550" class="body">• PII protection</text><text x="130" y="582" class="body">• Model-call limits</text><text x="130" y="614" class="body">• Tool-error recovery</text>
+
+  <rect x="560" y="430" width="375" height="225" class="box" fill="#173551"/>
+  <text x="748" y="476" text-anchor="middle" class="head">Tools &amp; MCP Layer</text>
+  <text x="600" y="518" class="body">• Google Serper search</text><text x="600" y="550" class="body">• Wikipedia lookup</text><text x="600" y="582" class="body">• Pushover notifications</text><text x="600" y="614" class="body">• Human-help tool</text>
+
+  <rect x="1040" y="430" width="420" height="225" class="box" fill="#173c37"/>
+  <text x="1250" y="476" text-anchor="middle" class="head">MCP Servers</text>
+  <text x="1090" y="526" class="body">Playwright MCP</text><text x="1090" y="556" class="small">Browser navigation and interaction</text><text x="1090" y="600" class="body">Filesystem MCP</text><text x="1090" y="630" class="small">Sandboxed file operations</text>
+
+  <path d="M1010 345 V385 H275 V430" class="line"/><path d="M1085 345 V385 H748 V430" class="line"/><path d="M935 542 H1040" class="line"/>
+
+  <rect x="210" y="760" width="340" height="155" class="box" fill="#253052"/>
+  <text x="380" y="807" text-anchor="middle" class="head">Conversation Memory</text>
+  <text x="380" y="847" text-anchor="middle" class="body">LangGraph InMemorySaver</text><text x="380" y="878" text-anchor="middle" class="small">Thread state and resumable runs</text>
+
+  <rect x="670" y="740" width="390" height="195" class="box" fill="url(#green)"/>
+  <text x="865" y="788" text-anchor="middle" class="head">Evaluator</text>
+  <text x="865" y="828" text-anchor="middle" class="body">Checks output against</text><text x="865" y="858" text-anchor="middle" class="body">user-defined success criteria</text><text x="865" y="892" text-anchor="middle" class="small">Structured Pydantic verdict</text>
+
+  <rect x="1170" y="760" width="300" height="155" class="box" fill="#44301c"/>
+  <text x="1320" y="807" text-anchor="middle" class="head">External Services</text>
+  <text x="1320" y="847" text-anchor="middle" class="body">Web • APIs • Websites</text><text x="1320" y="878" text-anchor="middle" class="small">Controlled through tools</text>
+
+  <path d="M380 760 V700 H1010 V345" class="line"/><path d="M1085 345 V690 H865 V740" class="line"/><path d="M1250 655 V760" class="line"/>
+  <path d="M670 840 H605 V370 H950" class="dash"/><text x="500" y="816" class="small" fill="#fbbf24">Retry with evaluator feedback</text>
+  <path d="M1060 840 H1115 V700 H600 V335" class="line"/><text x="1078" y="815" class="small">Criteria met</text>
+
+  <text x="800" y="975" text-anchor="middle" class="small">Python • LangChain • LangGraph • OpenAI • MCP • Gradio • LangSmith</text>
+</svg>
